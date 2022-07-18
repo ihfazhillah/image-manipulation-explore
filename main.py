@@ -47,7 +47,8 @@ def get_y_and_heights(text_wrapped, dimensions, margin, font):
 
 
 def main():
-    img = Image.open("image.png")
+    # img = Image.open("testxxhdpi.png")
+    img = Image.new("RGBA", (1600, 960), (255, 0, 0, 0))
     w, h = img.size
     half_width = w // 2
     half_height = h // 2
@@ -55,7 +56,7 @@ def main():
     print(img.info)
     print(img.im)
     print(img.size)
-    font = ImageFont.truetype("Crayon pastel.otf", 100)
+    font = ImageFont.truetype("Crayon pastel.otf", 80)
     print(font.getmetrics())
     draw = ImageDraw.Draw(img)
 
@@ -98,8 +99,8 @@ def main():
         y += line_heights[idx]
 
     img.show()
-    img.save("test_result.png")
-    with open("test_result_data.csv", "w") as data:
+    img.save("test_result-xxhdpi.png")
+    with open("test_result_data-xxhdpi.csv", "w") as data:
         writer = csv.writer(data)
         writer.writerows(page_data)
 
